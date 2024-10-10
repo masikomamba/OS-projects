@@ -38,10 +38,15 @@ int main() {
 
     // Wait for all threads to finish
     for (int j = 0; j < 10; j++) {
+        
         pthread_join(threads[j], NULL);
+        
         total_sum += thread_sum[j];  // Add each thread's sum
     }
 
+    for (int j = 0; j < 10; j++){
+    printf("sum of thread %d =  %d\n", j+1, thread_sum[j]);
+    }
     printf("Final sum: %d\n", total_sum);  // Output the final sum
     return 0;
 }
